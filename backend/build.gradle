@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+project.ext {
+	configPath = "${rootProject.projectDir}/config/"
+	dropwizardVersion = "1.0.0"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
+}
+
+mainClassName = "com.github.sivakumar_kailasam.super_rentals.SuperRentalsApp"
+
+run {
+	args 'server', configPath + 'app_config.yaml'
+}
